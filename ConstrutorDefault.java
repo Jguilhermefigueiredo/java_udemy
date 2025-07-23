@@ -12,13 +12,13 @@ public class ConstrutorDefault {
             ConstrutorDefault(){ // quando se cria um construtor vazio (default), pode-se declarar os valores das variáveis
                                 // da mesma maneira que se não tivesse-mos um
 
-            }
+            },
 
     public static void main(String[] args) {
         
         // ConstrutorDefault funcionario = new Construtor("José" , "Desenvolvedor" , 39); aqui seria declarado usando o construtor
 
-        ConstrutorDefault funcionario = new ConstrutorDefault(); //aqui ignoramos o contrutor e por termos um default podemos declarar cada valor para as variáveis
+        ConstrutorDefault funcionario = new ConstrutorDefault(); //aqui ignoramos o contrutor e por termos um default podemos declarar cada valor para as
         funcionario.nome = "José";
 
         System.out.println("Nome :" + funcionario.nome);
