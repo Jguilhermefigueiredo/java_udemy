@@ -18,7 +18,10 @@ public class Pedido implements PedidoRestaurnte {
     public double getPreco(){
         return preco;
     }
-  
+    public static double calcularTotal(Pedido p1Pedido, Pedido p2Pedido){
+        return p1Pedido.getPreco() + p2Pedido.getPreco();
+        
+        }
 
     public static void main(String[] args) {
         Pedido pedido = new Pedido("Hamburger", 2.50);
@@ -30,17 +33,19 @@ public class Pedido implements PedidoRestaurnte {
         pedido.getPreco();
         pedido2.getPreco();
 
-        double calcularTotal(){
-        return pedido.getPreco() + pedido2.getPreco();
-        System.out.println("Valor final do pedido é : " + calcularTotal);
-        }
+        double soma = calcularTotal(pedido, pedido2);
+        
+        System.out.println("Valor final do pedido é : " + soma);
+        
+        
 
 
     }
 
+
 }
 interface PedidoRestaurnte {
     void adicionarItem();
-    //double calcularTotal();
+    //double calcularTotal(); <-como resolver isso?
 
 }
