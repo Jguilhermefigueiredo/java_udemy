@@ -15,6 +15,12 @@ public class Pedido implements PedidoRestaurnte {
     public void adicionarItem(){
         System.out.println("Item e valor do cardápio: " + item + " " + preco);
     }
+    public String getItem(){
+        return item;
+    }
+    public static String chamarItens(Pedido p1Pedido, Pedido p2Pedido){
+        return p1Pedido.getItem() + " e " +  p2Pedido.getItem();
+    }
     public double getPreco(){
         return preco;
     }
@@ -32,6 +38,9 @@ public class Pedido implements PedidoRestaurnte {
         pedido2.adicionarItem();
         pedido.getPreco();
         pedido2.getPreco();
+
+        String itensPedidos = chamarItens(pedido, pedido2);
+        System.out.println("Itens pedidos: " + itensPedidos);    
 
         double soma = calcularTotal(pedido, pedido2);
         
