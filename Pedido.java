@@ -33,11 +33,13 @@ public class Pedido implements PedidoRestaurnte {
         Pedido pedido = new Pedido("Hamburger", 2.50);
         Pedido pedido1 = new Pedido("Batata", 1.50);
         Pedido pedido2 = new Pedido("Refrigerante", 2.00);
+        System.out.println("------------------------------------");
         pedido.adicionarItem();
         pedido1.adicionarItem();
         pedido2.adicionarItem();
         pedido.getPreco();
         pedido2.getPreco();
+        System.out.println("------------------------------------");
 
         String itensPedidos = chamarItens(pedido, pedido2);
         System.out.println("Itens pedidos: " + itensPedidos);    
@@ -45,9 +47,15 @@ public class Pedido implements PedidoRestaurnte {
         double soma = calcularTotal(pedido, pedido2);
         
         System.out.println("Valor final do pedido é : " + soma);
+        System.out.println("------------------------------------");
         
         
+        String novoPedido = chamarItens(pedido, pedido1);
+        System.out.println("Itens pedidos: " + novoPedido);    
 
+        double novaSoma = calcularTotal(pedido, pedido1);
+        
+        System.out.println("Valor final do pedido é : " + novaSoma);
 
     }
 
