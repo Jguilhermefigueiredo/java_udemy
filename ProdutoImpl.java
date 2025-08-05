@@ -1,55 +1,64 @@
-public class ProdutoImpl implements Produto{
-
+public class ProdutoImpl implements IProduto {
+    private String nome;
+    private int quantidade;
     int novaQuantidade;
-    public ProdutoImpl(String NOME, int QUANTIDADE){
-    }
-    public String produtoImpl (String NOME, int QUANTIDADE){
-        return NOME + QUANTIDADE;
-    }
-    public String getString(){
-        return NOME;
-    }
-    public int getInt(){
-        return QUANTIDADE;
-    }
-    public void setQuantidade(int novaQuantidade){
-    this.novaQuantidade = novaQuantidade;
-    }
-    public int getQuantidade(){
-        return novaQuantidade;
-    }
-    public int adicionarQuantidade(){
-        return QUANTIDADE + novaQuantidade;
-    }
-    public int removerQuantidade(){
-        return QUANTIDADE - novaQuantidade;
-    }
-    
-    public static void main(String[] args) {
-        ProdutoImpl produto = new ProdutoImpl(NOME, QUANTIDADE);
-        System.out.println("O produto " + produto.getString());
-        System.out.println("Tem a quantidade de:  " + produto.getInt());
-        produto.setQuantidade(20);
-        System.out.println("Com a chegada do carregamento, a nova quantidade é :" + produto.adicionarQuantidade());
 
-        produto.setQuantidade(30);
-        System.out.println("Foram vendidos: " + produto.getQuantidade());
-        int novoEstoque = produto.removerQuantidade();
-        if (novoEstoque<=0) {
-            System.out.println("Acabou o estoque.");
-            
-        } else {
-            System.out.println("A nova quantidade é: " + produto.removerQuantidade());
-            
-        }
+    public ProdutoImpl(String nome, int quantidade) {
+        this.nome = nome;
+        this.quantidade = quantidade;
+    }
+
+    @Override
+    public String getNome() {
+        return nome;
+    }
+
+    @Override
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void adicionarQuantidade(int quantidade) {
+        // this.quantidade = this.quantidade + quantidade;
+        this.quantidade += quantidade;
+        System.out.println("Nova quantidade: " + this.quantidade);
+    }
+
+    public void removerQuantidade(int quantidade) {
+        // this.quantidade = this.quantidade - quantidade;
+        if (quantidade > this.quantidade) {
+            System.err.println("Quantidade insuficiente. ");
         
-    
 
+        } else {
+            this.quantidade -= quantidade;
+            System.out.println("Nova quantidade: " + this.quantidade);
+
+        }
+    }
+
+    public static void main(String[] args) {
+        ProdutoImpl produtoObj = new ProdutoImpl("Borracha", 100);
+        System.out.println("Produtos: " + produtoObj.nome);
+        System.out.println("Quantidades: " + produtoObj.quantidade);
+
+        produtoObj.adicionarQuantidade(30);
+        produtoObj.removerQuantidade(70);
+        produtoObj.removerQuantidade(100);
+        System.out.println("quantidade atual: " + produtoObj.getQuantidade());
 
     }
 
 }
-interface Produto{
-    public final static String  NOME = "Borracha";
-    public final static int QUANTIDADE = 10;
+
+interface IProduto {
+    String getNome();
+
+    int getQuantidade();
+
+    void adicionarQuantidade(int quantidade);
+
+    void removerQuantidade(int quantidade);
 }
+
+
