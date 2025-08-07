@@ -1,33 +1,42 @@
+
 public class Pedido implements PedidoRestaurnte {
+
     String item;
     double preco;
 
-    public Pedido(){
+    public Pedido() {
 
     }
-    public Pedido (double preco){
+
+    public Pedido(double preco) {
         this.preco = preco;
     }
-    public Pedido(String item, double preco){
-       this.item = item;
-       this.preco = preco;
+
+    public Pedido(String item, double preco) {
+        this.item = item;
+        this.preco = preco;
     }
-    public void adicionarItem(){
+
+    public void adicionarItem() {
         System.out.println("Item e valor do cardápio: " + item + " " + preco);
     }
-    public String getItem(){
+
+    public String getItem() {
         return item;
     }
-    public static String chamarItens(Pedido p1Pedido, Pedido p2Pedido){
-        return p1Pedido.getItem() + " e " +  p2Pedido.getItem();
+
+    public static String chamarItens(Pedido p1Pedido, Pedido p2Pedido) {
+        return p1Pedido.getItem() + " e " + p2Pedido.getItem();
     }
-    public double getPreco(){
+
+    public double getPreco() {
         return preco;
     }
-    public static double calcularTotal(Pedido p1Pedido, Pedido p2Pedido){
+
+    public static double calcularTotal(Pedido p1Pedido, Pedido p2Pedido) {
         return p1Pedido.getPreco() + p2Pedido.getPreco();
-        
-        }
+
+    }
 
     public static void main(String[] args) {
         Pedido pedido = new Pedido("Hamburger", 2.50);
@@ -42,26 +51,26 @@ public class Pedido implements PedidoRestaurnte {
         System.out.println("------------------------------------");
 
         String itensPedidos = chamarItens(pedido, pedido2);
-        System.out.println("Itens pedidos: " + itensPedidos);    
+        System.out.println("Itens pedidos: " + itensPedidos);
 
         double soma = calcularTotal(pedido, pedido2);
-        
+
         System.out.println("Valor final do pedido é : " + soma);
         System.out.println("------------------------------------");
-        
-        
+
         String novoPedido = chamarItens(pedido, pedido1);
-        System.out.println("Itens pedidos: " + novoPedido);    
+        System.out.println("Itens pedidos: " + novoPedido);
 
         double novaSoma = calcularTotal(pedido, pedido1);
-        
+
         System.out.println("Valor final do pedido é : " + novaSoma);
 
     }
 
-
 }
+
 interface PedidoRestaurnte {
+
     void adicionarItem();
     //double calcularTotal(); <-como resolver isso?
 
