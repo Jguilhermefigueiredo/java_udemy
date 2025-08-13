@@ -9,7 +9,9 @@ public class Calculadora {
         System.out.println("A diferenca é: " + subObj.setCalcular());
         System.out.println("A divisão é " + divisaoObj.setCalcular());
         System.out.println("A multiplicação é: " + multiObj.setCalcular());
-
+        /*somaObj.a = 3.0; atribuindo novos valores
+        somaObj.b = 7.0;
+        System.out.println("A soma é: " + somaObj.setCalcular()); */
     }
 
 }
@@ -21,7 +23,7 @@ abstract class Operacao {
 
     public abstract double setCalcular();// não setar valores, deixar valor vazio
 
-    public Operacao(double a, double b) {//aqui que recebe os valores
+    public Operacao(double a, double b) {// aqui que recebe os valores
         this.a = a;
         this.b = b;
     }
