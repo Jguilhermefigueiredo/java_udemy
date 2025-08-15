@@ -10,6 +10,7 @@ public class SetExercise {
         numeros.add(3);
         System.out.println("Contem o número 7854? " + numeros.contains(7854));
         System.out.println("Números do conjunto: " + numeros);
+        System.out.println("Removendo o número 56.");
 
         numeros.remove(56);
         System.out.println("Números atualizados: " + numeros);
